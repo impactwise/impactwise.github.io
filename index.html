@@ -1,0 +1,65 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.min.js"></script>
+  <link rel="stylesheet" href="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.css">
+  <style>
+    /**
+      For the best possible result, the container should be sized similarly to an iPhone 6 (i.e. 750x1334 pixels or 1:1.79 aspect ratio).
+    */
+    .phone {
+      width: 375px;
+      height: 667px;
+    }
+</head>
+<body>
+  <div class="phone">
+  </div>
+  <script>
+    $(function() {
+      $('.phone')
+        // Initialize the plugin
+        .fbMessenger({
+          // options go here
+        })
+        // Schedule some interaction:
+        .fbMessenger('start', { delay: 1000 })
+        .fbMessenger('message', 'user', 'Get Started', { delay: 250 })
+        .fbMessenger('typingIndicator', { delay: 250 })
+        .fbMessenger('message', 'bot', 'Hello my friend, I am a jQuery plugin to fake Messenger interactions! I hope you like it.', { delay: 1500 })
+        .fbMessenger('typingIndicator', { delay: 0 })
+        .fbMessenger('message', 'bot', 'If you find my services useful, please star me on GitHub!', { delay: 1500 })
+        .fbMessenger('message', 'user', 'Hi, nice to meet you! I definitely will do!', { delay: 2000 })
+        .fbMessenger('typingIndicator', { delay: 0 })
+        .fbMessenger('message', 'bot', 'Really?', { delay: 1000 })
+        .fbMessenger('showQuickReplies', [ 'Yes!', 'Maybe...', 'Nope, just wanted to be polite' ], { delay: 2000 })
+        .fbMessenger('selectQuickReply', 0, { delay: 1000 })
+        .fbMessenger('showButtonTemplate', 'Do you use button templates?', [ 'Yes', 'No' ], { delay: 1500 })
+        .fbMessenger('selectButtonTemplate', 0, { delay: 2000 })
+        .fbMessenger('showGenericTemplate', [
+          {
+            imageUrl: '/your-first-image.png',
+            title: 'This is the first option.',
+            subtitle: 'You can have a subtitle if you like.',
+            buttons: [
+              'Button 1',
+              'Button 2'
+            ]
+          },
+          {
+            imageUrl: '/your-second-image.png',
+            title: 'This is your second option. Subtitle is optional!',
+            buttons: [
+              'Button 3',
+              'Button 4'
+            ];
+          }
+        ], { delay: 2000 })
+        .fbMessenger('scrollGenericTemplate', 1, { delay: 1000 })
+        .fbMessenger('selectGenericTemplate', 0, { delay: 1000 })
+        // And trigger the execution
+        .fbMessenger('run');
+      });
+  </script>
+</body>
+</html>
