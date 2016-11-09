@@ -72,38 +72,49 @@
           }
         })
         // Schedule some interaction:
-        .fbMessenger('start', { delay: 1000 })
-        .fbMessenger('message', 'user', 'Get Started', { delay: 250 })
+        .fbMessenger('start', { delay: 4000 })
+        .fbMessenger('message', 'bot', 'Hi there! I am here to help turn your social impact into a revenue generating business product or service. What is the social problem you are trying to solve?', { delay: 1500 })
         .fbMessenger('typingIndicator', { delay: 250 })
-        .fbMessenger('message', 'bot', 'Hello my friend, I am a jQuery plugin to fake Messenger interactions! I hope you like it.', { delay: 1500 })
+        .fbMessenger('message', 'user', 'I would like to stop hunger among children by providing free meals to children living in poverty.', { delay: 250 })
         .fbMessenger('typingIndicator', { delay: 0 })
-        .fbMessenger('message', 'bot', 'If you find my services useful, please star me on GitHub!', { delay: 1500 })
-        .fbMessenger('message', 'user', 'Hi, nice to meet you! I definitely will do!', { delay: 2000 })
-        .fbMessenger('typingIndicator', { delay: 0 })
-        .fbMessenger('message', 'bot', 'Really?', { delay: 1000 })
-        .fbMessenger('showQuickReplies', [ 'Yes!', 'Maybe...', 'Nope, just wanted to be polite' ], { delay: 2000 })
+        .fbMessenger('showQuickReplies', 'Sounds fantastic! It is my pleasure to be able to give you a helping hand in solving such a serious social problem. Please let me know what you need.', [ 'Revenue model to support my operation.', 'Execution ideas to solve the problem', 'Help! I have no idea where to start!'], { delay: 1500 })
+        .fbMessenger('scrollQuickReplies', 2, { delay: 4000 })
+        .fbMessenger('scrollQuickReplies', 0, { delay: 1000 })
+        .fbMessenger('scrollQuickReplies', 3, { delay: 1000 })
         .fbMessenger('selectQuickReply', 0, { delay: 1000 })
-        .fbMessenger('showButtonTemplate', 'Do you use button templates?', [ 'Yes', 'No' ], { delay: 1500 })
-        .fbMessenger('selectButtonTemplate', 0, { delay: 2000 })
+        .fbMessenger('message', 'bot', 'Give me a moment. I am looking into other existing social enterprises with similar social problem to get you started.', { delay: 1000 })
+        .fbMessenger('typingIndicator', { delay: 1000 })
         .fbMessenger('showGenericTemplate', [
           {
-            imageUrl: '/your-first-image.png',
-            title: 'This is the first option.',
-            subtitle: 'You can have a subtitle if you like.',
+            imageUrl: 'TwoDegreesBars.jpg',
+            title: 'Try selling nutricious energy bars',
+            subtitle: 'Provide a free meal to a child in need for every two bars sold - Two Degrees',
             buttons: [
-              'Button 1',
-              'Button 2'
+              'Read More',
+              'No Thanks'
             ]
           },
           {
-            imageUrl: '/your-second-image.png',
-            title: 'This is your second option. Subtitle is optional!',
+            imageUrl: 'TownKitchen.png',
+            title: 'Try lunch ordering services',
+            subtitle: 'Allow consumers get food ordered and delivered online - TownKitchen',
             buttons: [
-              'Button 3',
-              'Button 4'
+              'Read More',
+              'No Thanks'
+            ]
+          },
+          {
+            imageUrl: 'BeyondBeanieMeals.jpg',
+            title: 'Try selling beanies',
+            subtitle: 'Provide 5 meals for children for every beanie sold - BeyondBeanie',
+            buttons: [
+              'Read More',
+              'No Thanks'
             ]
           }
         ], { delay: 2000 })
+        .fbMessenger('scrollGenericTemplate', 1, { delay: 1000 })
+        .fbMessenger('scrollGenericTemplate', 2, { delay: 1000 })
         .fbMessenger('scrollGenericTemplate', 1, { delay: 1000 })
         .fbMessenger('selectGenericTemplate', 0, { delay: 1000 })
         // And trigger the execution
