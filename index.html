@@ -1,5 +1,6 @@
 <html>
 <head>
+  <title>Impactwise Chatbot Demo</title>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.min.js"></script>
   <link rel="stylesheet" href="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.css">
@@ -7,20 +8,69 @@
     /**
       For the best possible result, the container should be sized similarly to an iPhone 6 (i.e. 750x1334 pixels or 1:1.79 aspect ratio).
     */
-    .phone {
-      width: 375px;
-      height: 667px;
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: #fff;
     }
+    div.vcenter {
+      margin: 5vh auto 0;
+      height: 95vh;
+      width: 100%;
+      text-align: center;
+    }
+    div.iphone-wrapper {
+      display: inline-block;
+      width: auto;
+      height: 100%;
+      position: relative;
+    }
+    div.iphone-wrapper > img {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+    div.screen-content {
+      position: absolute;
+      top: 10.8985%;
+      bottom: 20%;
+      left: 14.65%;
+      right: 16.8%;
+      background: #000;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    div.github-buttons {
+      text-align: center;
+    }
+    div.github-buttons iframe {
+      margin-right: 2em;
+    }
+  </style>
 </head>
 <body>
-  <div class="phone">
+  <div class="vcenter">
+    <div class="iphone-wrapper">
+      <img alt="iPhone 6 white" src="https://i.imgsafe.org/a2ba6b06b3.png" />
+      <div class="screen-content">
+      </div>
+    </div>
   </div>
   <script>
     $(function() {
-      $('.phone')
+      $('.screen-content')
         // Initialize the plugin
         .fbMessenger({
           // options go here
+          botName: 'Impact Wise',
+          botBannerUrl: '',
+          botLogoUrl: 'impactwise-logo.png',
+          botWelcomeMessage: 'Hi! I am here to help turn your social impact into a revenue generating business product or service. What is the social problem you are trying to solve?',
+          likes: {
+            totalCount: 45553, 
+            friendName: 'John Doe',
+            otherFriendsCount: 2
+          }
         })
         // Schedule some interaction:
         .fbMessenger('start', { delay: 1000 })
