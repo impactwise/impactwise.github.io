@@ -73,6 +73,7 @@
         })
         // Schedule some interaction:
         .fbMessenger('start', { delay: 4000 })
+        .fbMessenger('message', 'user', 'Get Started', { timestamp: now, delay: 250 })
         .fbMessenger('message', 'bot', 'Hi there! I am here to help turn your social impact into a revenue generating business product or service. What is the social problem you are trying to solve?', { delay: 1500 })
         .fbMessenger('typingIndicator', { delay: 250 })
         .fbMessenger('message', 'user', 'I would like to stop hunger among children by providing free meals to children living in poverty.', { delay: 250 })
