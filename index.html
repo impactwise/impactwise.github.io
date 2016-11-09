@@ -71,20 +71,18 @@
             otherFriendsCount: 2
           }
         })
-        // Schedule some interaction:
-        .fbMessenger('start', { delay: 4000 })
-        .fbMessenger('message', 'user', 'Get Started', { timestamp: now, delay: 250 })
-        .fbMessenger('typingIndicator', { delay: 250 })
-        .fbMessenger('message', 'bot', 'Hi there! I am here to help turn your social impact into a revenue generating business product or service. What is the social problem you are trying to solve?', { delay: 1500 })
-        .fbMessenger('typingIndicator', { delay: 250 })
-        .fbMessenger('message', 'user', 'I would like to stop hunger among children by providing free meals to children living in poverty.', { delay: 250 })
-        .fbMessenger('typingIndicator', { delay: 0 })
-        .fbMessenger('showQuickReplies', 'Sounds fantastic! It is my pleasure to be able to give you a helping hand in solving such a serious social problem. Please let me know what you need.', [ 'Revenue model to support my operation.', 'Execution ideas to solve the problem', 'Help! I have no idea where to start!'], { delay: 1500 })
-        .fbMessenger('scrollQuickReplies', 2, { delay: 4000 })
+        .fbMessenger('start', { delay: 6000 } )
+        .fbMessenger('typingIndicator', { delay: 500 })
+        .fbMessenger('message', 'bot', 'Hi there! Great execution comes from great motivation. What is the social problem you are trying to solve?', { timestamp: now, delay: 3000 })
+        .fbMessenger('message', 'user', 'I would like to stop hunger among children by providing free meals to children living in poverty.', { delay: 4000 })
+        .fbMessenger('typingIndicator', { delay: 1000 })
+        .fbMessenger('message', 'bot', 'Sounds fantastic! It is my pleasure to help. Please let me know what you need.', { delay: 4000})
+        .fbMessenger('showQuickReplies', ['Revenue model to support my operation.', 'Ideas to solve the problem', 'Help! I have no idea where to start!'], { delay: 3000 })
+        .fbMessenger('scrollQuickReplies', 1, { delay: 4000 })
         .fbMessenger('scrollQuickReplies', 0, { delay: 1000 })
-        .fbMessenger('scrollQuickReplies', 3, { delay: 1000 })
+        .fbMessenger('scrollQuickReplies', 2, { delay: 1000 })
         .fbMessenger('selectQuickReply', 0, { delay: 1000 })
-        .fbMessenger('message', 'bot', 'Give me a moment. I am looking into other existing social enterprises with similar social problem to get you started.', { delay: 1000 })
+        .fbMessenger('message', 'bot', 'Give me a moment. I am looking into other existing social enterprises with similar social problem to get you started.', { delay: 3000 })
         .fbMessenger('typingIndicator', { delay: 1000 })
         .fbMessenger('showGenericTemplate', [
           {
@@ -98,7 +96,7 @@
           },
           {
             imageUrl: 'TownKitchen.png',
-            title: 'Try lunch ordering services',
+            title: 'Try providing lunch ordering services',
             subtitle: 'Allow consumers get food ordered and delivered online - TownKitchen',
             buttons: [
               'Read More',
@@ -114,12 +112,11 @@
               'No Thanks'
             ]
           }
-        ], { delay: 2000 })
-        .fbMessenger('scrollGenericTemplate', 1, { delay: 1000 })
-        .fbMessenger('scrollGenericTemplate', 2, { delay: 1000 })
-        .fbMessenger('scrollGenericTemplate', 1, { delay: 1000 })
+        ], { delay: 3000 })
+        .fbMessenger('scrollGenericTemplate', 1, { delay: 3000 })
+        .fbMessenger('scrollGenericTemplate', 2, { delay: 3000 })
+        .fbMessenger('scrollGenericTemplate', 0, { delay: 3000 })
         .fbMessenger('selectGenericTemplate', 0, { delay: 1000 })
-        // And trigger the execution
         .fbMessenger('run');
       });
   </script>
