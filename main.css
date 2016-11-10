@@ -2900,6 +2900,17 @@ div.screen-content {
     color: #12aa6d;
   }
 
+  .impactwise-link {
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+    color: #0084ff;
+    text-decoration: none;
+  }
+
+  .impactwise-link:hover {
+    color: #287ccc;
+  }
+
   .home-top-brand {
     display: block;
     margin-bottom: 55px;
