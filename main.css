@@ -2325,6 +2325,13 @@ div.screen-content {
 /*    letter-spacing: 0.25px;*/
   }
 
+  impactwise-response {
+    font-family: 'Sf ui display', sans-serif !important;
+    color: #2a2e32;
+    display: none;
+    padding: 20px;
+  }
+
   h1 {
     margin-top: 20px;
     margin-bottom: 30px;
