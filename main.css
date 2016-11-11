@@ -2458,8 +2458,8 @@ div.screen-content {
     padding: 12px 24px;
     border-radius: 100px;
     background-color: #1fd05f;
-    background-image: -webkit-linear-gradient(315deg, #1fd05f, #1fd18a);
-    background-image: linear-gradient(135deg, #1fd05f, #1fd18a);
+    background-image: -webkit-linear-gradient(315deg, #15af71, #0069cc);
+    background-image: linear-gradient(135deg, #15af71, #0069cc);
     box-shadow: none;
     -webkit-transition: all 300ms ease;
     transition: all 300ms ease;
@@ -2472,8 +2472,8 @@ div.screen-content {
     border-top-left-radius: 100px;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
-    background-image: -webkit-linear-gradient(315deg, #17b350, #1ab878);
-    background-image: linear-gradient(135deg, #17b350, #1ab878);
+    background-image: -webkit-linear-gradient(315deg, #0d9e64, #005cb2);
+    background-image: linear-gradient(135deg, #0d9e64, #005cb2);
     color: white;
   }
 
