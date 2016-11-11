@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Impactwise AI Chatbot</title>
+  <!-- meta description -->
   <meta property="og:type"               content="article" />
   <meta property="og:url"                content="https://www.impactwise.github.io" />
   <meta property="og:title"              content="ImpactWise AI" />
@@ -15,9 +16,6 @@
   <script type="text/javascript">
     // Monkey-patch logic
     var pageName = 'home';
-    var isCheckMyPlace = pageName === 'check-my-place' ? true : false;
-    var isUnsubscribe = pageName === 'unsubscribe' ? true : false;
-
     var isMobile = window.innerWidth <= 768 ? true : false;
     var widthRatios = {
       text1: isMobile ? 80 : (isUnsubscribe ? 45 : (isCheckMyPlace ? 65 : 85)),
@@ -39,367 +37,286 @@
 <body>
 
 
-<div id="top" class="w-section section full-section">
-<!--   <div id="nav" data-collapse="medium" data-animation="default" data-duration="400" class="w-nav navbar">
-    <a href="#top" data-ix="howdy-reveal" class="w-nav-brand w-clearfix brand navbar-brand fixed-navbar-brand"><img width="100" src="images/panda-wink.png" class="logo-image navbar-logo-image">
-      <div class="bubble small-bubble small-bubble-shadow">
-        <div class="chat-text exposed small-chat-text">Hi! I'm ImpactWise!</div>
-      </div>
-    </a><a href="#top" class="w-nav-link nav-link right">Reserve my spot</a>
-  </div> -->
-
-  <!-- Navigation bar  -->
-  <div class="home-top-brand">
-    <div class="home-top-brand-inner">
-      <div data-collapse="medium" data-animation="default" data-duration="400" data-doc-height="1" data-no-scroll="1" class="w-nav navbar-top">
-        <a href="#top" class="w-nav-brand w-clearfix brand navbar-brand"><img alt="Olivia AI Logo" width="100" src="images/panda-logo.png" class="logo-image navbar-logo-image top bigger">
-          <div class="bubble small-bubble small-bubble-shadow show">
-            <div class="chat-text exposed brand-name">ImpactWise</div>
-            <div class="brand-byline">Translate your social impact to a business product</div>
+  <div id="top" class="w-section section full-section">
+    <!-- Navigation bar  -->
+    <div class="home-top-brand">
+      <div class="home-top-brand-inner">
+        <div data-collapse="medium" data-animation="default" data-duration="400" data-doc-height="1" data-no-scroll="1" class="w-nav navbar-top">
+          <a href="#top" class="w-nav-brand w-clearfix brand navbar-brand"><img alt="Olivia AI Logo" width="100" src="images/panda-logo.png" class="logo-image navbar-logo-image top bigger">
+            <div class="bubble small-bubble small-bubble-shadow show">
+              <div class="chat-text exposed brand-name">ImpactWise</div>
+              <div class="brand-byline">Translate your social impact to a business product</div>
+            </div>
+          </a>
+          <nav role="navigation" class="w-nav-menu nav-menu">
+            <a href="#why-impactwise" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
+                <div>Why ImpactWise</div>
+                <div class="link-rule"></div>
+            </a>
+            <a href="#how-she-survive" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
+                <div>How She Survives</div>
+                <div class="link-rule"></div>
+            </a>
+            <a href="#supporther" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
+                <div>Support Her</div>
+                <div class="link-rule"></div>
+            </a>
+            <a href="mailto:impactwise@gmail.com" target="_blank" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
+                <div>Contact Us</div>
+                <div class="link-rule"></div>
+            </a>
+          </nav>
+          <div class="w-nav-button menu-button">
+            <div class="w-icon-nav-menu"></div>
           </div>
-        </a>
-        <nav role="navigation" class="w-nav-menu nav-menu">
-          <a href="#why-impactwise" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
-              <div>Why ImpactWise</div>
-              <div class="link-rule"></div>
-          </a>
-          <a href="#how-she-survive" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
-              <div>How She Survives</div>
-              <div class="link-rule"></div>
-          </a>
-          <a href="#supporther" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
-              <div>Support Her</div>
-              <div class="link-rule"></div>
-          </a>
-          <a href="mailto:impactwise@gmail.com" target="_blank" data-ix="hover-footer-link" class="w-inline-block nav-link top-nav-link">
-              <div>Contact Us</div>
-              <div class="link-rule"></div>
-          </a>
-        </nav>
-        <div class="w-nav-button menu-button">
-          <div class="w-icon-nav-menu"></div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Bubble welcoming chats -->
-  <div class="w-row home-top-row">
-    <div class="col-lg-8">
-      <div class="section top-section" id="chat-text-container">
-        <script type="text/javascript">
-          function enableBubbleText(index) {
-            document.getElementById("inner-chat-text-" + index).style.display = "inline";
-          }
-          function updateBubbleText() {
-            var text1Width = document.getElementById("chat-text-1").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
-            var text2Width = document.getElementById("chat-text-2").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
-            var text3Width = document.getElementById("chat-text-3").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
-            if (text1Width > 0.75) {
-              enableBubbleText(1);
+    <!-- Bubble welcoming chats -->
+    <div class="w-row home-top-row">
+      <div class="col-lg-8">
+        <div class="section top-section" id="chat-text-container">
+          <script type="text/javascript">
+            function enableBubbleText(index) {
+              document.getElementById("inner-chat-text-" + index).style.display = "inline";
             }
-            if (text2Width > 0.84) {
-              enableBubbleText(2);
+            function updateBubbleText() {
+              var text1Width = document.getElementById("chat-text-1").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
+              var text2Width = document.getElementById("chat-text-2").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
+              var text3Width = document.getElementById("chat-text-3").offsetWidth / document.getElementById("chat-text-container").offsetWidth;
+              if (text1Width > 0.75) {
+                enableBubbleText(1);
+              }
+              if (text2Width > 0.84) {
+                enableBubbleText(2);
+              }
+              if (text3Width > 0.83) {
+                enableBubbleText(3);
+              }
+              if (text1Width > 0.75 && text2Width > 0.84 && text3Width > 0.83) {
+                clearInterval(animationInterval);
+              }
             }
-            if (text3Width > 0.83) {
-              enableBubbleText(3);
-            }
-            if (text1Width > 0.75 && text2Width > 0.84 && text3Width > 0.83) {
-              clearInterval(animationInterval);
-            }
-          }
-          var animationInterval = setInterval(updateBubbleText, 100);
-        </script>
-        <div class="w-clearfix chat-container">
-          <div data-ix="reveal-chat-text" class="bubble" id="chat-text-1">
-            <div class="chat-text"><div id="inner-chat-text-1" style="display:none">
-                Hi! I’m ImpactWise.</div>
+            var animationInterval = setInterval(updateBubbleText, 100);
+          </script>
+          <div class="w-clearfix chat-container">
+            <div data-ix="reveal-chat-text" class="bubble" id="chat-text-1">
+              <div class="chat-text"><div id="inner-chat-text-1" style="display:none">
+                  Hi! I’m ImpactWise.</div>
+              </div>
+            </div>
+            <div data-ix="reveal-chat-text-2" class="bubble" id="chat-text-2">
+              <div class="w-clearfix typing">
+                <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+              </div>
+              <div class="chat-text"><div id="inner-chat-text-2" style="display:none">
+                  I translate social impact to business products.
+                </div></div>
+            </div>
+            <div data-ix="reveal-chat-text-3" class="bubble" id="chat-text-3">
+              <div class="w-clearfix typing">
+                <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+              </div>
+              <div class="chat-text"><div id="inner-chat-text-3" style="display:none">
+                  Enter your e-mail to get an exclusive invite when I'm ready. I'll never spam you.
+                </div></div>
+            </div>
+            <div data-ix="reveal-chat-text-3" class="bubble bubble-3">
+              <div class="w-clearfix typing">
+                <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+              </div>
+              <div class="chat-text">Be the first to see how great I am!</div>
             </div>
           </div>
-          <div data-ix="reveal-chat-text-2" class="bubble" id="chat-text-2">
-            <div class="w-clearfix typing">
-              <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-            </div>
-            <div class="chat-text"><div id="inner-chat-text-2" style="display:none">
-                I translate social impact to business products.
-              </div></div>
-          </div>
-          <div data-ix="reveal-chat-text-3" class="bubble" id="chat-text-3">
-            <div class="w-clearfix typing">
-              <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-            </div>
-            <div class="chat-text"><div id="inner-chat-text-3" style="display:none">
-                Enter your e-mail to get an exclusive invite when I'm ready. I'll never spam you.
-              </div></div>
-          </div>
-          <div data-ix="reveal-chat-text-3" class="bubble bubble-3">
-            <div class="w-clearfix typing">
-              <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-              <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-            </div>
-            <div class="chat-text">Be the first to see how great I am!</div>
-          </div>
-        </div>
 
-        <div class="section answer-section">
-          <div class="answer-section-inner">
-            <div data-ix="remove-user-replying-label" class="chat-label user-chat-label">Replying to ImpactWise...</div>
-            <div id= "mc_embed_signup" class="w-form w-clearfix form-wrapper">
-              <form action="//github.us14.list-manage.com/subscribe/post?u=915f7cb7cc06380553b902872&amp;id=773da09270" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="w-clearfix bubble response-bubble" target="_blank" novalidate>
-                  <input id="email" type="email" placeholder="What's your email?" name="EMAIL" data-name="Email" required="required" autofocus="autofocus" class="w-input input">
-                  <input type="submit" value="Reserve my spot" name="subscribe" id="mc-embedded-subscribe" data-wait="Confirming..." wait="Confirming..." class="w-button button">
-              </form>
-              <div id="mce-responses" class="impactwise-response">
-                <div class="w-form-done" id="mce-success-response">
-                    <p>Thank you! Your submission has been received!</p>
-                </div>
-                <div class="w-form-fail" id="mce-error-response">
-                    <p>Oops! Something went wrong while submitting the form</p>
+          <div class="section answer-section">
+            <div class="answer-section-inner">
+              <div data-ix="remove-user-replying-label" class="chat-label user-chat-label">Replying to ImpactWise...</div>
+              <div id= "mc_embed_signup" class="w-form w-clearfix form-wrapper">
+                <form action="//github.us14.list-manage.com/subscribe/post?u=915f7cb7cc06380553b902872&amp;id=773da09270" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="w-clearfix bubble response-bubble" target="_blank" novalidate>
+                    <input id="email" type="email" placeholder="What's your email?" name="EMAIL" data-name="Email" required="required" autofocus="autofocus" class="w-input input">
+                    <input type="submit" value="Reserve my spot" name="subscribe" id="mc-embedded-subscribe" data-wait="Confirming..." wait="Confirming..." class="w-button button">
+                </form>
+                <div id="mce-responses" class="impactwise-response">
+                  <div class="w-form-done" id="mce-success-response">
+                      <p>Thank you! Your submission has been received!</p>
+                  </div>
+                  <div class="w-form-fail" id="mce-error-response">
+                      <p>Oops! Something went wrong while submitting the form</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </div>
-    <div class="col-lg-4">
-    <div class="iphone-wrapper">
-      <img alt="iPhone 6 white" src="https://i.imgsafe.org/a2ba6b06b3.png" />
-      <div class="screen-content">
-      </div>
-    </div>
-    </div>
-</div>
-</div>
-
-<div id="why-impactwise" class="w-section main-section main-section-how">
-    <div class="section centered">
-        <h2>She is your friendly business partner.</h2><br>
-        <div class="w-row how-row how-row-top">
-            <div class="w-col w-col-6 image-column"><img alt="Chat phone backdrop" width="396" src="images/iterative-approach.png" class="how-phone-bg">
-            </div>
-            <div class="w-col w-col-6 w-clearfix how-column-text">
-                <div class="heading-label">1</div>
-                <h3 class="steps-h3">Iterative approach to business model</h3>
-                <p class="small-p steps-p">Simply update ImpactWise on your progress. She will help you in continuously iterating your business model until it's viable.</p>
-                <div data-ix="reveal-chat-text-5" class="bubble push-top push-left">
-                    <div class="w-clearfix typing">
-                        <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-                    </div>
-                    <div class="chat-text">Seriously. Business model ideas in just a few texts away.</div>
-                </div>
-            </div>
-        </div>
-        <div class="how-row">
-            <div class="how-row-middle-right image-column image-column-2"><img alt="Chat phone backdrop" width="300" src="images/advice-to-action.png" class="_80">
-            <img alt="Chat phone backdrop" width="180" src="images/get-involved-chat.png" class="_80">
-<!--                 <div data-ix="conversation-reveal" class="how-bubble how-2-bubble"><img alt="Chat bubble" width="396" src="images/advice-to-action.png" class="how-2-bubble-1"><img alt="Chat bubble" width="396" src="images/how-2-bubble-2.png" class="how-2-bubble-2"><img alt="Chat bubble" width="396" src="images/how-2-bubble-3.png" class="how-2-bubble-3">
-                </div> -->
-            </div>
-            <div class="w-clearfix how-row-middle-left how-column-text">
-                <div class="heading-label">2</div>
-                <h3 class="steps-h3">Transform advice to actions</h3>
-                <p class="small-p steps-p">ImpactWise collects advice from established social entrepreneurs, and guide you on how to turn them into actions. She's available anytime, anywhere for busy entrepreneur like you.</p>
-                <div data-ix="reveal-chat-text-6" class="bubble push-top push-left">
-                    <div class="w-clearfix typing">
-                        <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-                    </div>
-                    <div class="chat-text">Don't worry. We are here to help!</div>
-                </div>
-            </div>
-        </div>
-        <div class="w-row how-row">
-            <div class="w-col w-col-6 image-column last"><img alt="Overview screen" width="396" src="images/motivation-2.png" class="_80">
-<!--                 <div class="how-bubble how-bubble-3"><img alt="Overview graph" width="359" src="images/how-3-bubble.png" class="how-bubble-image">
-                </div> -->
-            </div>
-            <div class="w-col w-col-6 w-clearfix how-column-text">
-                <div class="heading-label">3</div>
-                <h3 class="steps-h3">Always there for you</h3>
-                <p class="small-p steps-p">We all know it's hard to be an entrepreneur. With ImpactWise, we try to keep you motivated when things get hard.</p>
-                <div data-ix="reveal-chat-text-7" class="bubble push-top push-left">
-                    <div class="w-clearfix typing">
-                        <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-                    </div>
-                    <div class="chat-text">A friend in need is a friend indeed.</div>
-                </div>
-            </div>
-        </div>
-        <h3>Check out <a href="#top" class="impactwise-link">how she works</a>.</h3>
-    </div>
-</div>
-
-<div id="how-she-survive" class="w-section main-section why-section">
-  <div class="section">
-    <div class="w-row why-row">
-      <div class="w-col w-col-4 why-column">
-        <div class="why-left-column">
-          <div class="why-graphic">
-            <i class="fa fa-commenting" aria-hidden="true"></i>
-            <div data-ix="how-messaging-scroll" class="why-graphic why-graphic-messages">
-            </div>
+      <div class="col-lg-4">
+        <div class="iphone-wrapper">
+          <img alt="iPhone 6 white" src="https://i.imgsafe.org/a2ba6b06b3.png" />
+          <div class="screen-content">
           </div>
         </div>
-        <div class="why-right-column">
-          <h3 class="why-h3">Use ImpactWise For Free</h3>
-          <p class="small-p no-left-margin">Integrated with Facebook Messenger, ImpactWise is free to use anytime anywhere. Chat with ImpactWise the same way you would with your friends, and start making social impact from day one.</p>
-        </div>
       </div>
-      <div class="w-col w-col-4 why-column">
-        <div class="why-left-column">
-          <div data-ix="how-money-middle" class="why-graphic why-graphic-messages why-graphic-money">
+  </div>
+  </div>
+
+  <div id="why-impactwise" class="w-section main-section main-section-how">
+      <div class="section centered">
+          <h2>She is your friendly business partner.</h2><br>
+          <div class="w-row how-row how-row-top">
+              <div class="w-col w-col-6 image-column"><img alt="Chat phone backdrop" width="396" src="images/iterative-approach.png" class="how-phone-bg">
+              </div>
+              <div class="w-col w-col-6 w-clearfix how-column-text">
+                  <div class="heading-label">1</div>
+                  <h3 class="steps-h3">Iterative approach to business model</h3>
+                  <p class="small-p steps-p">Simply update ImpactWise on your progress. She will help you in continuously iterating your business model until it's viable.</p>
+                  <div data-ix="reveal-chat-text-5" class="bubble push-top push-left">
+                      <div class="w-clearfix typing">
+                          <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+                      </div>
+                      <div class="chat-text">Seriously. Business model ideas in just a few texts away.</div>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="why-right-column">
-          <h3 class="why-h3">Subscribe when it works</h3>
-          <p class="small-p no-left-margin">Subscribe to ImpactWise to continuously improve your business model when it is generating revenue. ImpactWise will only charge 1% of your revenue to keep it running and help fund other social enterprise in need.</p>
-        </div>
+          <div class="how-row">
+              <div class="how-row-middle-right image-column image-column-2"><img alt="Chat phone backdrop" width="300" src="images/advice-to-action.png" class="_80">
+              <img alt="Chat phone backdrop" width="180" src="images/get-involved-chat.png" class="_80">
+              </div>
+              <div class="w-clearfix how-row-middle-left how-column-text">
+                  <div class="heading-label">2</div>
+                  <h3 class="steps-h3">Transform advice to actions</h3>
+                  <p class="small-p steps-p">ImpactWise collects advice from established social entrepreneurs, and guide you on how to turn them into actions. She's available anytime, anywhere for busy entrepreneur like you.</p>
+                  <div data-ix="reveal-chat-text-6" class="bubble push-top push-left">
+                      <div class="w-clearfix typing">
+                          <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+                      </div>
+                      <div class="chat-text">Don't worry. We are here to help!</div>
+                  </div>
+              </div>
+          </div>
+          <div class="w-row how-row">
+              <div class="w-col w-col-6 image-column last"><img alt="Overview screen" width="396" src="images/motivation-2.png" class="_80">
+              </div>
+              <div class="w-col w-col-6 w-clearfix how-column-text">
+                  <div class="heading-label">3</div>
+                  <h3 class="steps-h3">Always there for you</h3>
+                  <p class="small-p steps-p">We all know it's hard to be an entrepreneur. With ImpactWise, we try to keep you motivated when things get hard.</p>
+                  <div data-ix="reveal-chat-text-7" class="bubble push-top push-left">
+                      <div class="w-clearfix typing">
+                          <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+                      </div>
+                      <div class="chat-text">A friend in need is a friend indeed.</div>
+                  </div>
+              </div>
+          </div>
+          <h3>Check out <a href="#top" class="impactwise-link">how she works</a>.</h3><br>
       </div>
-      <div class="w-col w-col-4 why-column">
-        <div class="why-left-column">
-          <div class="why-graphic why-graphic-messages">
-            <div data-ix="how-messaging-scroll" class="why-graphic-messaging-inside">
-              <div class="why-chart-inner"></div>
+  </div>
+
+  <div id="how-she-survive" class="w-section main-section why-section">
+    <div class="section">
+      <div class="w-row why-row">
+        <div class="w-col w-col-4 why-column">
+          <div class="why-left-column">
+            <div class="why-graphic">
+              <i class="fa fa-commenting" aria-hidden="true"></i>
+              <div data-ix="how-messaging-scroll" class="why-graphic why-graphic-messages">
+              </div>
             </div>
           </div>
+          <div class="why-right-column">
+            <h3 class="why-h3">Use ImpactWise For Free</h3>
+            <p class="small-p no-left-margin">Integrated with Facebook Messenger, ImpactWise is free to use anytime anywhere. Chat with ImpactWise the same way you would with your friends, and start making social impact from day one.</p>
+          </div>
         </div>
-        <div class="why-right-column">
-          <h3 class="why-h3">FREE lifetime membership</h3>
-          <p class="small-p no-left-margin">Stand a chance to use ImpactWise for FREE forever by helping us fund this initiative below. Top 5 winning contributor will get a lifetime FREE membership.</p>
+        <div class="w-col w-col-4 why-column">
+          <div class="why-left-column">
+            <div data-ix="how-money-middle" class="why-graphic why-graphic-messages why-graphic-money">
+            </div>
+          </div>
+          <div class="why-right-column">
+            <h3 class="why-h3">Subscribe when it works</h3>
+            <p class="small-p no-left-margin">Subscribe to ImpactWise to continuously improve your business model when it is generating revenue. ImpactWise will only charge 1% of your revenue to keep it running and help fund other social enterprise in need.</p>
+          </div>
         </div>
+        <div class="w-col w-col-4 why-column">
+          <div class="why-left-column">
+            <div class="why-graphic why-graphic-messages">
+              <div data-ix="how-messaging-scroll" class="why-graphic-messaging-inside">
+                <div class="why-chart-inner"></div>
+              </div>
+            </div>
+          </div>
+          <div class="why-right-column">
+            <h3 class="why-h3">FREE lifetime membership</h3>
+            <p class="small-p no-left-margin">Stand a chance to use ImpactWise for FREE forever by helping us fund this initiative below. Top 5 winning contributor will get a lifetime FREE membership.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-row">
+      <center>
+        <a href="" class="w-nav-link nav-link">Subscribe EARLY BIRD membership of $5.99/month</a>
+      </center>
       </div>
     </div>
   </div>
-</div>
 
-<div id="supporther" class="w-section main-section about-section bottom-about-section">
-    <div class="section">
-        <div class="w-row">
-            <div class="w-col w-col-5 w-col-stack w-clearfix column left-column science-text-column">
-                <h1 class="layers-h1">Help Fund This Initiative</h1>
-                <p class="layers-p">ImpactWise aims to help create sulf-sustaining social enterprise, and to rely less on external funding and donation. ImpactWise believes that this is a critical step to increase your social impact.</p>
-                <div data-ix="reveal-chat-text-4" class="bubble push-top science-bubble">
-                    <div class="w-clearfix typing">
-                        <div data-ix="ellipsis-1" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-3" class="ellipsis-1"></div>
-                        <div data-ix="ellipsis-2" class="ellipsis-1"></div>
-                    </div>
-                    <div class="chat-text">Help <a class="olivia-link" href="#top">fund</a> this initative, you'll be the first few people to test the product prior to official release. You too can make a difference by helping us to <a class="olivia-link" href="">make ImpactWise better.</a></div>
-                </div>
-            </div>
-            <div data-ix="show-layer-tips" class="w-col w-col-7 w-col-stack column stacked-column">
-                <div data-ix="reveal-stack" class="stacked-container"><img alt="iOS Security Layer" src="images/circle-goal.jpg">
-                </div>
-            </div>
+  <div id="supporther" class="w-section main-section about-section bottom-about-section">
+      <div class="section">
+          <div class="w-row">
+              <div class="w-col w-col-5 w-col-stack w-clearfix column left-column science-text-column">
+                  <h1 class="layers-h1">Help Fund This Initiative</h1>
+                  <p class="layers-p">ImpactWise aims to help create sulf-sustaining social enterprise, and to rely less on external funding and donation. ImpactWise believes that this is a critical step to increase your social impact.</p>
+                  <div data-ix="reveal-chat-text-4" class="bubble push-top science-bubble">
+                      <div class="w-clearfix typing">
+                          <div data-ix="ellipsis-1" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-3" class="ellipsis-1"></div>
+                          <div data-ix="ellipsis-2" class="ellipsis-1"></div>
+                      </div>
+                      <div class="chat-text">Help <a class="olivia-link" href="#top">fund</a> this initative, you'll be the first few people to test the product prior to official release. You too can make a difference by helping us to <a class="olivia-link" href="">make ImpactWise better.</a></div>
+                  </div>
+              </div>
+              <div data-ix="show-layer-tips" class="w-col w-col-7 w-col-stack column stacked-column">
+                  <div data-ix="reveal-stack" class="stacked-container"><img alt="iOS Security Layer" src="images/circle-goal.jpg">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="w-section main-section footer">
+      <div class="section footer-top-section">
+          <div class="w-row footer-row">
+              <div class="w-col w-col-8 footer-right-column">
+                  <div class="footer-list-heading">Copyright 2016, ImpactWise AI</div>
+              </div>
         </div>
-    </div>
-</div>
-
-
-<div class="w-section main-section footer">
-    <div class="section footer-top-section">
-        <div class="w-row footer-row">
-            <div class="w-col w-col-8 footer-right-column">
-                <div class="footer-list-heading">Copyright 2016, ImpactWise AI</div>
-<!--                 <ul class="w-list-unstyled w-clearfix footer-list footer-social-list">
-                  <li class="footer-list-item footer-social-list-item">
-                      <a href="https://medium.com/olivia-talks-finance" target="_blank" class="w-inline-block footer-link social-link medium-link"><img alt="Medium" width="22" src="images/medium-alt-2.png"></a>
-                  </li>
-                  <li class="footer-list-item footer-social-list-item">
-                      <a href="https://www.facebook.com/oliviatalksfinance" target="_blank" class="w-inline-block footer-link social-link facebook-link"><img alt="Facebook" width="20" src="images/facebook-512.png"></a>
-                  </li>
-                  <li class="footer-list-item footer-social-list-item">
-                      <a href="https://twitter.com/oliviaai_" target="_blank" class="w-inline-block footer-link social-link twitter-link"><img alt="Twitter" width="21" src="images/Twitter_bird_logo_2012.svg.png"></a>
-                  </li>
-                  <li class="footer-list-item footer-social-list-item">
-                      <a href="https://www.instagram.com/oliviaai_/" target="_blank" class="w-inline-block footer-link social-link instagram-link"><img alt="Instagram" width="20" src="images/instagram-6-xxl.png"></a>
-                  </li>
-                </ul>
- -->       </div>
-    </div>
-</div>
+      </div>
+  </div>
 
   <script src="fbMessenger.js"></script>
   <script src="webflow.js"></script>
-  <script>
-                    if ("undefined" == typeof jQuery)
-                        throw new Error("Bootstrap's JavaScript requires jQuery");
-                    +function(t) {
-                        "use strict";
-                        var e = t.fn.jquery.split(" ")[0].split(".");
-                        if (e[0] < 2 && e[1] < 9 || 1 == e[0] && 9 == e[1] && e[2] < 1)
-                            throw new Error("Bootstrap's JavaScript requires jQuery version 1.9.1 or higher")
-                    }(jQuery), +function(t) {
-                        "use strict";
-                        function e(e) {
-                            return this.each(function() {
-                                var o = t(this), f = o.data("bs.affix"), n = "object" == typeof e && e;
-                                f || o.data("bs.affix", f = new i(this, n)), "string" == typeof e && f[e]()
-                            })
-                        }
-                        var i = function(e, o) {
-                            this.options = t.extend({}, i.DEFAULTS, o), this.$target = t(this.options.target).on("scroll.bs.affix.data-api", t.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", t.proxy(this.checkPositionWithEventLoop, this)), this.$element = t(e), this.affixed = null, this.unpin = null, this.pinnedOffset = null, this.checkPosition()
-                        };
-                        i.VERSION = "3.3.5", i.RESET = "affix affix-top affix-bottom", i.DEFAULTS = {offset: 0, target: window}, i.prototype.getState = function(t, e, i, o) {
-                            var f = this.$target.scrollTop(), n = this.$element.offset(), s = this.$target.height();
-                            if (null != i && "top" == this.affixed)
-                                return i > f ? "top" : !1;
-                            if ("bottom" == this.affixed)
-                                return null != i ? f + this.unpin <= n.top ? !1 : "bottom" : t - o >= f + s ? !1 : "bottom";
-                            var r = null == this.affixed, a = r ? f : n.top, h = r ? s : e;
-                            return null != i && i >= f ? "top" : null != o && a + h >= t - o ? "bottom" : !1
-                        }, i.prototype.getPinnedOffset = function() {
-                            if (this.pinnedOffset)
-                                return this.pinnedOffset;
-                            this.$element.removeClass(i.RESET).addClass("affix");
-                            var t = this.$target.scrollTop(), e = this.$element.offset();
-                            return this.pinnedOffset = e.top - t
-                        }, i.prototype.checkPositionWithEventLoop = function() {
-                            setTimeout(t.proxy(this.checkPosition, this), 1)
-                        }, i.prototype.checkPosition = function() {
-                            if (this.$element.is(":visible")) {
-                                var e = this.$element.height(), o = this.options.offset, f = o.top, n = o.bottom, s = Math.max(t(document).height(), t(document.body).height());
-                                "object" != typeof o && (n = f = o), "function" == typeof f && (f = o.top(this.$element)), "function" == typeof n && (n = o.bottom(this.$element));
-                                var r = this.getState(s, e, f, n);
-                                if (this.affixed != r) {
-                                    null != this.unpin && this.$element.css("top", "");
-                                    var a = "affix" + (r ? "-" + r : ""), h = t.Event(a + ".bs.affix");
-                                    if (this.$element.trigger(h), h.isDefaultPrevented())
-                                        return;
-                                    this.affixed = r, this.unpin = "bottom" == r ? this.getPinnedOffset() : null, this.$element.removeClass(i.RESET).addClass(a).trigger(a.replace("affix", "affixed") + ".bs.affix")
-                                }
-                                "bottom" == r && this.$element.offset({top: s - e - n})
-                            }
-                        };
-                        var o = t.fn.affix;
-                        t.fn.affix = e, t.fn.affix.Constructor = i, t.fn.affix.noConflict = function() {
-                            return t.fn.affix = o, this
-                        }, t(window).on("load", function() {
-                            t('[data-spy="affix"]').each(function() {
-                                var i = t(this), o = i.data();
-                                o.offset = o.offset || {}, null != o.offsetBottom && (o.offset.bottom = o.offsetBottom), null != o.offsetTop && (o.offset.top = o.offsetTop), e.call(i, o)
-                            })
-                        })
-                    }(jQuery);
-  </script>
 
-<!-- MailChimp -->
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<!-- End of MailChimp -->
+  <!-- MailChimp -->
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+  <!-- End of MailChimp -->
 
-<!-- Social sharing side bar --> 
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5825660661e3b2b3"></script> 
+  <!-- Social sharing side bar --> 
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5825660661e3b2b3"></script> 
 </body>
 </html>
