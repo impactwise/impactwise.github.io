@@ -18,11 +18,15 @@
       text3: isMobile ? 80 : 72
     };
   </script>
+  <!-- Sharing script -->
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript" src="https://ss.sharethis.com/loader.js"></script>
+
   <link rel="stylesheet" href="main.css">
   <!-- Include third parties stylesheets -->
   <link rel="stylesheet" href="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -138,16 +142,18 @@
         <div class="section answer-section">
           <div class="answer-section-inner">
             <div data-ix="remove-user-replying-label" class="chat-label user-chat-label">Replying to ImpactWise...</div>
-            <div class="w-form w-clearfix form-wrapper">
-              <form id="email-form" name="email-form" data-name="Email Form" action="/confirmation" method="POST" class="w-clearfix bubble response-bubble">
-                  <input id="email" type="email" placeholder="What's your email?" name="email" data-name="Email" required="required" autofocus="autofocus" class="w-input input">
-                  <input type="submit" value="Reserve my spot" data-wait="Confirming..." wait="Confirming..." class="w-button button">
+            <div id= "mc_embed_signup" class="w-form w-clearfix form-wrapper">
+              <form action="//github.us14.list-manage.com/subscribe/post?u=915f7cb7cc06380553b902872&amp;id=773da09270" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="w-clearfix bubble response-bubble" target="_blank" novalidate>
+                  <input id="email" type="email" placeholder="What's your email?" name="EMAIL" data-name="Email" required="required" autofocus="autofocus" class="w-input input">
+                  <input type="submit" value="Reserve my spot" name="subscribe" id="mc-embedded-subscribe" data-wait="Confirming..." wait="Confirming..." class="w-button button">
               </form>
-              <div class="w-form-done">
-                  <p>Thank you! Your submission has been received!</p>
-              </div>
-              <div class="w-form-fail">
-                  <p>Oops! Something went wrong while submitting the form</p>
+              <div id="mce-responses">
+                <div class="w-form-done" id="mce-success-response">
+                    <p>Thank you! Your submission has been received!</p>
+                </div>
+                <div class="w-form-fail" id="mce-error-response">
+                    <p>Oops! Something went wrong while submitting the form</p>
+                </div>
               </div>
             </div>
           </div>
@@ -381,5 +387,10 @@
                         })
                     }(jQuery);
   </script>
+
+<!-- MailChimp -->
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"915f7cb7cc06380553b902872","lid":"773da09270"}) })</script>
+<!-- End of MailChimp -->
 </body>
 </html>
