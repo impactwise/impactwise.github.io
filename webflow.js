@@ -1481,12 +1481,6 @@
                                     data.handler = null;
                                     data.redirect = $el.attr('data-redirect');
 
-                                    // MailChimp form
-                                    if (chimpRegex.test(action)) {
-                                        data.handler = submitMailChimp;
-                                        return;
-                                    }
-
                                     // Custom form action
                                     if (action)
                                         return;
@@ -1628,6 +1622,95 @@
                                     }).fail(function(response, textStatus, jqXHR) {
                                         afterSubmit(data);
                                     });
+                                }
+
+                                // Submit form to MailChimp
+                                function submitMailChimp(data) {
+                                    reset(data);
+
+                                    var form = data.form;
+                                    var payload = {};
+
+                                    // Skip Ajax submission if http/s mismatch, fallback to POST instead
+                                    if (/^https/.test(loc.href) && !/^https/.test(data.action)) {
+                                        form.attr('method', 'post');
+                                        return;
+                                    }
+
+                                    preventDefault(data);
+
+                                    // Find & populate all fields
+                                    var status = findFields(form, payload);
+                                    if (status)
+                                        return alert(status);
+
+                                    // Disable submit button
+                                    disableBtn(data);
+
+                                    // Use special format for MailChimp params
+                                    var fullName;
+                                    _.each(payload, function(value, key) {
+                                        if (emailField.test(key))
+                                            payload.EMAIL = value;
+                                        if (/^((full[ _-]?)?name)$/i.test(key))
+                                            fullName = value;
+                                        if (/^(first[ _-]?name)$/i.test(key))
+                                            payload.FNAME = value;
+                                        if (/^(last[ _-]?name)$/i.test(key))
+                                            payload.LNAME = value;
+                                    });
+
+                                    if (fullName && !payload.FNAME) {
+                                        fullName = fullName.split(' ');
+                                        payload.FNAME = fullName[0];
+                                        payload.LNAME = payload.LNAME || fullName[1];
+                                    }
+
+                                    // Use the (undocumented) MailChimp jsonp api
+                                    var url = data.action.replace('/post?', '/post-json?') + '&c=?';
+                                    // Add special param to prevent bot signups
+                                    var userId = url.indexOf('u=') + 2;
+                                    userId = url.substring(userId, url.indexOf('&', userId));
+                                    var listId = url.indexOf('id=') + 3;
+                                    listId = url.substring(listId, url.indexOf('&', listId));
+                                    payload['b_' + userId + '_' + listId] = '';
+
+                                    $.ajax({
+                                        url: url,
+                                        data: payload,
+                                        dataType: 'jsonp'
+                                    }).done(function(resp) {
+                                        data.success = (resp.result === 'success' || /already/.test(resp.msg));
+                                        if (!data.success)
+                                            console.info('MailChimp error: ' + resp.msg);
+                                        afterSubmit(data);
+                                    }).fail(function(response, textStatus, jqXHR) {
+                                        afterSubmit(data);
+                                    });
+                                }
+
+                                // Common callback which runs after all Ajax submissions
+                                function afterSubmit(data) {
+                                    var form = data.form;
+                                    var wrap = form.closest('div.w-form');
+                                    var redirect = data.redirect;
+                                    var success = data.success;
+
+                                    // Redirect to a success url if defined
+                                    if (success && redirect) {
+                                        Webflow.location(redirect);
+                                        return;
+                                    }
+
+                                    // Show or hide status divs
+                                    data.done.toggle(success);
+                                    data.fail.toggle(!success);
+
+                                    // Hide form on success
+                                    form.toggle(!success);
+
+                                    // Reset data and enable submit button
+                                    reset(data);
                                 }
 
                                 function preventDefault(data) {

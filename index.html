@@ -8,6 +8,7 @@
   <meta property="og:description"        content="Hi! I'm ImpactWise. I translate social impact to business products." />
   <meta property="og:image"              content="https://impactwise.github.io/images/impactwise-social-banner.png" />
   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script src="https://rawgit.com/digitalbreed/jquery.fbmessenger/develop/dist/jquery.fbmessenger.min.js"></script>
@@ -16,6 +17,9 @@
   <script type="text/javascript">
     // Monkey-patch logic
     var pageName = 'home';
+    var isCheckMyPlace = pageName === 'check-my-place' ? true : false;
+    var isUnsubscribe = pageName === 'unsubscribe' ? true : false;
+
     var isMobile = window.innerWidth <= 768 ? true : false;
     var widthRatios = {
       text1: isMobile ? 80 : (isUnsubscribe ? 45 : (isCheckMyPlace ? 65 : 85)),
